@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=3 uid="uid://chix5tr7hyild"]
+
+[ext_resource type="PackedScene" uid="uid://dl6dl5yxxcn3d" path="res://scenes/levels/level.tscn" id="1_6upfy"]
+[ext_resource type="Script" path="res://scenes/levels/outside.gd" id="2_3eu3n"]
+[ext_resource type="Texture2D" uid="uid://wvnq82hqa0lg" path="res://graphics/ground/stones.png" id="2_kkevw"]
+[ext_resource type="PackedScene" uid="uid://wo8ihw5e1hgk" path="res://scenes/objects/house.tscn" id="3_f4xji"]
+[ext_resource type="Texture2D" uid="uid://bq5ayq18l7pbq" path="res://graphics/decals/dirt_patch.png" id="4_vdnbq"]
+[ext_resource type="Texture2D" uid="uid://clw4l4bvo2nhr" path="res://graphics/tilesets/outside_walls.png" id="5_dwsve"]
+[ext_resource type="Texture2D" uid="uid://c7shvj3xlt2y8" path="res://graphics/tilesets/soil.png" id="6_ddshv"]
+[ext_resource type="PackedScene" uid="uid://itfiydb0lr1m" path="res://scenes/objects/gate.tscn" id="7_25hk5"]
+[ext_resource type="PackedScene" uid="uid://b50dd7fhs5kgw" path="res://scenes/container/toilet.tscn" id="9_q5hef"]
+[ext_resource type="PackedScene" uid="uid://btj2obo8qbodf" path="res://scenes/container/box.tscn" id="10_s2eug"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cn5i1"]
+resource_name = "walls"
+texture = ExtResource("5_dwsve")
+texture_region_size = Vector2i(390, 390)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+0:3/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ono08"]
+resource_name = "soil"
+texture = ExtResource("6_ddshv")
+texture_region_size = Vector2i(390, 390)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ckaw5"]
+tile_size = Vector2i(390, 390)
+sources/0 = SubResource("TileSetAtlasSource_cn5i1")
+sources/1 = SubResource("TileSetAtlasSource_ono08")
+
+[node name="Outside" instance=ExtResource("1_6upfy")]
+script = ExtResource("2_3eu3n")
+
+[node name="Soil" type="Sprite2D" parent="Ground" index="0"]
+texture_repeat = 2
+texture = ExtResource("2_kkevw")
+region_enabled = true
+region_rect = Rect2(-1250.95, -1095.71, 16000, 10000)
+
+[node name="House" parent="Ground/Soil" index="0" instance=ExtResource("3_f4xji")]
+position = Vector2(-2236, 1964)
+rotation = 0.905997
+
+[node name="Decoration" type="Sprite2D" parent="Ground" index="1"]
+modulate = Color(1, 0.835294, 0.607843, 1)
+position = Vector2(-658, 876)
+texture = ExtResource("4_vdnbq")
+
+[node name="TileMap" type="TileMap" parent="Ground" index="2"]
+tile_set = SubResource("TileSet_ckaw5")
+format = 2
+layer_0/name = "Soil"
+layer_0/tile_data = PackedInt32Array(-8, 1, 2, -7, 65537, 2, -6, 65537, 2, -5, 65537, 2, -4, 65537, 2, -3, 131073, 2, -65531, 1, 2, -65530, 65537, 2, -65529, 131073, 2, -393224, 65537, 1, -327688, 65537, 1, -262152, 65537, 1, -196616, 65537, 1, -131080, 65537, 1, -65544, 65537, 1, -393223, 65537, 1, -327687, 65537, 1, -262151, 65537, 1, -196615, 65537, 1, -131079, 65537, 1, -65543, 65537, 1, -393222, 65537, 1, -327686, 65537, 1, -262150, 65537, 1, -196614, 65537, 1, -131078, 65537, 1, -65542, 65537, 1, -393221, 65537, 1, -327685, 65537, 1, -262149, 65537, 1, -196613, 65537, 1, -131077, 65537, 1, -65541, 65537, 1, -393220, 65537, 1, -327684, 65537, 1, -262148, 65537, 1, -196612, 65537, 1, -131076, 65537, 1, -65540, 65537, 1, -393219, 65537, 1, -327683, 65537, 1, -262147, 65537, 1, -196611, 65537, 1, -131075, 65537, 1, -65539, 65537, 1, -393218, 65537, 1, -327682, 65537, 1, -262146, 65537, 1, -196610, 65537, 1, -131074, 65537, 1, -65538, 65537, 1, -393217, 65537, 1, -327681, 65537, 1, -262145, 65537, 1, -196609, 65537, 1, -131073, 65537, 1, -65537, 65537, 1, -458752, 65537, 1, -393216, 65537, 1, -327680, 65537, 1, -262144, 65537, 1, -196608, 65537, 1, -131072, 65537, 1, -458751, 65537, 1, -393215, 65537, 1, -327679, 65537, 1, -262143, 65537, 1, -196607, 65537, 1, -131071, 65537, 1, -458750, 65537, 1, -393214, 65537, 1, -327678, 65537, 1, -262142, 65537, 1, -196606, 65537, 1, -131070, 65537, 1, -458749, 65537, 1, -393213, 65537, 1, -327677, 65537, 1, -262141, 65537, 1, -196605, 65537, 1, -131069, 65537, 1, -458748, 65537, 1, -393212, 65537, 1, -327676, 65537, 1, -262140, 65537, 1, -196604, 65537, 1, -131068, 65537, 1, -458747, 65537, 1, -393211, 65537, 1, -327675, 65537, 1, -262139, 65537, 1, -196603, 65537, 1, -131067, 65537, 1, -458746, 65537, 1, -393210, 65537, 1, -327674, 65537, 1, -262138, 65537, 1, -196602, 65537, 1, -131066, 65537, 1, -458745, 65537, 1, -393209, 65537, 1, -327673, 65537, 1, -262137, 65537, 1, -196601, 65537, 1, -131065, 65537, 1)
+layer_1/name = "Walls"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(-8, 0, 0, -7, 65536, 0, -6, 65536, 0, -5, 65536, 0, -4, 65536, 0, -3, 131072, 0, -65531, 0, 0, -65530, 65536, 0, -65529, 131072, 0)
+
+[node name="Gate" parent="." index="2" instance=ExtResource("7_25hk5")]
+metadata/_edit_lock_ = true
+
+[node name="Toilet" parent="Gate" index="3" instance=ExtResource("9_q5hef")]
+position = Vector2(1154, 496)
+
+[node name="Box" parent="Gate/Toilet" index="2" instance=ExtResource("10_s2eug")]
+position = Vector2(-872, 71)
+
+[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
