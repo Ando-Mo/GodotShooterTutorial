@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl6dl5yxxcn3d"]
+[gd_scene load_steps=4 format=3 uid="uid://dl6dl5yxxcn3d"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_cig3r"]
+[ext_resource type="PackedScene" uid="uid://dfkrirkljnvnh" path="res://scenes/user interface/ui.tscn" id="3_b6u51"]
 [ext_resource type="PackedScene" uid="uid://p6v032puijwj" path="res://scenes/player/player.tscn" id="3_pbd57"]
 
 [node name="Level" type="Node2D"]
@@ -23,6 +24,8 @@ position_smoothing_enabled = true
 color = Color(0.282353, 0.286275, 0.168627, 1)
 blend_mode = 1
 metadata/_edit_lock_ = true
+
+[node name="UI" parent="." instance=ExtResource("3_b6u51")]
 
 [connection signal="grenadeShot" from="Player" to="." method="_on_player_grenade_shot"]
 [connection signal="laserShot" from="Player" to="." method="_on_player_laser_shot"]
