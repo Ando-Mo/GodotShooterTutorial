@@ -12,6 +12,7 @@ func _on_player_laser_shot(pos, direction):
 	laser.direction = direction 
 	#add laser instance to an existing Node2D
 	$Projectiles.add_child(laser)
+	$UI.update_laser_text() 
 
 
 func _on_player_grenade_shot(pos, direction):
@@ -19,6 +20,7 @@ func _on_player_grenade_shot(pos, direction):
 	grenade.position = pos
 	grenade.linear_velocity = direction * grenade.speed
 	$Projectiles.add_child(grenade)
+	$UI.update_grenade_text()
 
 
 func _on_house_player_entered(): 
