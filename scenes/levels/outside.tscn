@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://chix5tr7hyild"]
+[gd_scene load_steps=13 format=3 uid="uid://chix5tr7hyild"]
 
 [ext_resource type="PackedScene" uid="uid://dl6dl5yxxcn3d" path="res://scenes/levels/level.tscn" id="1_6upfy"]
 [ext_resource type="Script" path="res://scenes/levels/outside.gd" id="2_3eu3n"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://clw4l4bvo2nhr" path="res://graphics/tilesets/outside_walls.png" id="5_dwsve"]
 [ext_resource type="Texture2D" uid="uid://c7shvj3xlt2y8" path="res://graphics/tilesets/soil.png" id="6_ddshv"]
 [ext_resource type="PackedScene" uid="uid://itfiydb0lr1m" path="res://scenes/objects/gate.tscn" id="7_25hk5"]
+[ext_resource type="PackedScene" uid="uid://bqc11elm65fop" path="res://scenes/items/item.tscn" id="9_1vbml"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cn5i1"]
 resource_name = "walls"
@@ -76,5 +77,8 @@ layer_1/tile_data = PackedInt32Array(-8, 0, 0, -7, 65536, 0, -6, 65536, 0, -5, 6
 
 [node name="Gate" parent="." index="2" instance=ExtResource("7_25hk5")]
 metadata/_edit_lock_ = true
+
+[node name="Item" parent="." index="4" instance=ExtResource("9_1vbml")]
+position = Vector2(329, 456)
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
